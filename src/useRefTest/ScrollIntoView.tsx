@@ -7,6 +7,7 @@ export default function ScrollIntoView() {
   const secondCatRef = useRef<HTMLImageElement | null>(null);
   const thirdCatRef = useRef<HTMLImageElement | null>(null);
   const catFindHandle = (index) => {
+    //이방식은 자식요소가 확실하다면 상관없지만, 동적으로 무언가 생긴다면 DOM트리가 꼬인다.
     const find = catRef.current && Array.from(catRef.current?.children)[index];
     find?.scrollIntoView({
       behavior: "smooth",
